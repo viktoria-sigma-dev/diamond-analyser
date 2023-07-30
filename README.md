@@ -34,4 +34,4 @@ Project utilizes defined input parameters from third-party `http://api.idexonlin
 1. Run `yarn install` to install dependencies
 2. Copy/paste `.env.example` and rename to `.env` in order to have environment variables during project running. Update variables in case of need.
 3. In the project directory, you can run:
-`npm start`
+`yarn start`
