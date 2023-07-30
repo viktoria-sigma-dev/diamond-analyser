@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Box, Container, styled, Theme } from '@mui/material';
+import DiamondCalculator from './diamond-calculator/DiamondCalculator';
 
-function App() {
+const ImageBackground = styled(Box)(({ imageurl }: { imageurl: string }) => ({
+  backgroundImage: `url(${imageurl})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+}));
+const MainBox = styled(Box)(({ theme }: { theme: Theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  margin: '0 auto',
+  padding: '150px 50px',
+  height: '100vh',
+  backgroundColor: theme.palette.background.default,
+  [theme.breakpoints.down('md')]: {
+    padding: '50px 20px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    padding: '20px',
+  },
+}));
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ImageBackground imageurl="diamond.jpg">
+      <Container maxWidth="md">
+        <MainBox>
+          <DiamondCalculator />
+        </MainBox>
+      </Container>
+    </ImageBackground>
   );
-}
+};
 
 export default App;

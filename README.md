@@ -1,46 +1,37 @@
-# Getting Started with Create React App
+### Project description:
+Project gives a possibility to a user to calculate a diamond price based on Carat Weight, Cut, Color and Clarity, Make abd Certificate.
+The project contains a form with autocomplete and number values (considering factor type), actual price data on the current moment and a modal window,
+that allows to check out similar diamonds based on the calculated price and chosen cut.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project utilizes API endpoints. So to be able to use the whole functionality of the project - please set up env file.
 
-## Available Scripts
+### Dependencies
+1. BE up and running with exposed `/diamond/calculate` and `/diamond/get-similar-products` endpoints.
 
-In the project directory, you can run:
+### Project data:
+Project utilizes defined input parameters from third-party `http://api.idexonline.com/RealTimePrices/Calculator`.
+1. You can find/edit all the characteristics reflected in the form using path:
+   `src/constants/diamond-characteristics.ts`
 
-### `npm start`
+### Project set up assumptions:
+1. Theme was created for the whole project with defined values here `src/constants/theme.ts`
+2. Design was created using on the MUI `https://mui.com/`
+3. Typescript was used by default
+4. Redux store was added to the project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Project behavior assumptions:
+1. Required diamond characteristics to calculate price were provided: Carat Weight, Cut, Color and Clarity.
+2. Optional diamond characteristics to calculate price were added: Make abd Certificate.
+3. BE uses third party API in order to calculate diamond price:
+`http://www.idexonline.com/DPService.asp`, but also there is a possibility to pass "useOfflineCalculator=true" flag and diamond price will be calculated by system.
+4. Since price currency is not returned from third party API, default currency is used: "USD".
+5. Characteristics options were taken from the source (Input parameters):
+`http://www.idexonline.com/DPService.asp`
+6. Similar products are loaded after diamond cut and calculated price is defined.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Run project
+1. Run `yarn install` to install dependencies
+2. Copy/paste `.env.example` and rename to `.env` in order to have environment variables during project running. Update variables in case of need.
+3. In the project directory, you can run:
+`npm start`
