@@ -15,7 +15,6 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
-    "no-console": "off", // TODO delete
     'prettier/prettier': 'error',
     'no-var': 'error',
     'prefer-const': 'error',
@@ -29,8 +28,8 @@ module.exports = {
     'unused-imports/no-unused-imports': 2,
     'unused-imports/no-unused-imports-ts': 2,
     'import/no-unresolved': 'off',
-    'react/react-in-jsx-scope': 'off', //Newer versions of react don't need to import React
-    'react/require-default-props': 'off', //Going to be deprecated soon
+    'react/react-in-jsx-scope': 'off',
+    'react/require-default-props': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/consistent-type-assertions': 2,
